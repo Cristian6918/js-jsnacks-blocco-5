@@ -1,0 +1,1 @@
+console.log('snack3 ok');
