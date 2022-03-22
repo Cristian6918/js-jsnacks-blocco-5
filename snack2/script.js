@@ -1,8 +1,6 @@
-console.log('snack1 ok');
+console.log('snack2 ok');
 
-
-//Crea un array di 10 oggetti che rappresentano una zucchina, indicando per ognuna varietà, peso e lunghezza. Calcola quanto pesano tutte le zucchine.
-
+//Crea 10 oggetti che rappresentano una zucchina. Dividi in due array separati le zucchine che misurano meno o più di 15cm. Infine stampa separatamente quanto pesano i due gruppi di zucchine.
 
 //Function for a random number
 function randomNumbers(min, max) {
@@ -44,6 +42,7 @@ function randomZucchini() {
 
 
 let arrayZucchini = [];
+
 //Creation of 10 objects
 for (let i = 0; i < 10; i++) {
     let zucchini = {
@@ -52,9 +51,27 @@ for (let i = 0; i < 10; i++) {
         length: randomNumbers(5, 30),
     }
     arrayZucchini.push(zucchini);
-}
-
+};
 console.log(arrayZucchini);
+
+//Declaration of two arrays (under 15 and over 15)cm!
+let arrayOver = [];
+let arrayUnder = [];
+
+
+//Function that push the zucchini under 15cm in arrayUnder and over 15cm in arrayOver!
+function underOver(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].length < 15) {
+            arrayUnder.push(array[i]);
+        } else {
+            arrayOver.push(array[i]);
+        }
+    }
+};
+
+underOver(arrayZucchini);
+
 
 // Function that calculate the TOTAL WEIGTH of the ZUCCHINI
 function totalWeight(array) {
@@ -65,6 +82,9 @@ function totalWeight(array) {
     return sum;
 }
 
-const sum = totalWeight(arrayZucchini);
+const sumUnder = totalWeight(arrayUnder);
+const sumOver = totalWeight(arrayOver);
 
-console.log(`La somma totale delle zucchine è  ${sum}`);
+console.log(`Il peso totale delle zucchine che pesano meno di 15cm è  ${sumUnder}`);
+console.log(`Il peso totale delle zucchine che pesano meno di 15cm è  ${sumOver}`);
+
